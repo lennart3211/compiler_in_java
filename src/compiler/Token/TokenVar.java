@@ -1,19 +1,14 @@
 package compiler.Token;
 
-public class TokenVar implements Token {
-    private String value;
-    private TokenType type;
+public class TokenVar extends Token {
+    protected String value;
 
     public TokenVar(TokenType type, String value) {
-        this.type = type;
+        super(type);
         this.value = value;
     }
 
     public String value() {
         return value;
-    }
-
-    public TokenType type() {
-        return type;
     }
 }

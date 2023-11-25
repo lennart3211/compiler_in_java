@@ -1,6 +1,8 @@
 package compiler;
 
 import compiler.Token.Token;
+import compiler.Token.TokenType;
+import compiler.Token.TokenVar;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -53,16 +55,16 @@ public class Lexer {
                 }
                 switch (buf.toString()) {
                     case "fun":
-                        tokens.add(new TokenGen(TokenType.FUN));
+                        tokens.add(new Token(TokenType.FUN));
                         break;
                     case "return":
-                        tokens.add(new TokenGen(TokenType.RETURN));
+                        tokens.add(new Token(TokenType.RETURN));
                         break;
                     case "let":
-                        tokens.add(new TokenGen(TokenType.LET));
+                        tokens.add(new Token(TokenType.LET));
                         break;
                     case "exit":
-                        tokens.add(new TokenGen(TokenType.EXIT));
+                        tokens.add(new Token(TokenType.EXIT));
                         break;
                     default:
                         tokens.add(new TokenVar(TokenType.NAME, buf.toString()));
@@ -75,37 +77,37 @@ public class Lexer {
                 }
                 tokens.add(new TokenVar(TokenType.INT, buf.toString()));
             } else if ((char) peek() == '(') {
-                tokens.add(new TokenGen(TokenType.OPEN_PAREN));
+                tokens.add(new Token(TokenType.OPEN_PAREN));
                 consume();
             } else if ((char) peek() == ')') {
-                tokens.add(new TokenGen(TokenType.CLOSE_PARAN));
+                tokens.add(new Token(TokenType.CLOSE_PARAN));
                 consume();
             } else if ((char) peek() == '{') {
-                tokens.add(new TokenGen(TokenType.OPEN_CURLY));
+                tokens.add(new Token(TokenType.OPEN_CURLY));
                 consume();
             } else if ((char) peek() == '}') {
-                tokens.add(new TokenGen(TokenType.CLOSE_CURLY));
+                tokens.add(new Token(TokenType.CLOSE_CURLY));
                 consume();
             } else if ((char) peek() == '+') {
-                tokens.add(new TokenGen(TokenType.PLUS));
+                tokens.add(new Token(TokenType.PLUS));
                 consume();
             } else if ((char) peek() == '-') {
-                tokens.add(new TokenGen(TokenType.MINUS));
+                tokens.add(new Token(TokenType.MINUS));
                 consume();
             } else if ((char) peek() == '*') {
-                tokens.add(new TokenGen(TokenType.ASTERISK));
+                tokens.add(new Token(TokenType.ASTERISK));
                 consume();
             } else if ((char) peek() == '/') {
-                tokens.add(new TokenGen(TokenType.F_SLASH));
+                tokens.add(new Token(TokenType.F_SLASH));
                 consume();
             } else if ((char) peek() == '=') {
-                tokens.add(new TokenGen(TokenType.EQUALS));
+                tokens.add(new Token(TokenType.EQUALS));
                 consume();
             } else if ((char) peek() == '!') {
-                tokens.add(new TokenGen(TokenType.NOT));
+                tokens.add(new Token(TokenType.NOT));
                 consume();
             } else if ((char) peek() == ';') {
-                tokens.add(new TokenGen(TokenType.SEMI));
+                tokens.add(new Token(TokenType.SEMI));
                 consume();
             } else {
                 consume();

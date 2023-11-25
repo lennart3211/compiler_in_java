@@ -1,9 +1,9 @@
 package compiler;
 
-import compiler.Token.Token;
 import compiler.Node.Exit;
 import compiler.Node.Expr;
 import compiler.Node.ExprInt;
+import compiler.Token.Token;
 import compiler.Token.TokenType;
 import compiler.Token.TokenVar;
 

@@ -1,5 +1,13 @@
 package compiler.Token;
 
-public interface Token {
-    public TokenType type();
+public class Token {
+    protected TokenType type;
+
+    public Token(TokenType type) {
+        this.type = type;
+    }
+
+    public TokenType type() {
+        return type;
+    }
 }
